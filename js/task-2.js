@@ -16,12 +16,13 @@ const images = [
       alt: "Group of Horses Running",
     },
   ];
-  
+  let fragment = document.createDocumentFragment();
   images.forEach(image => {
     const listElement = document.createElement('li');
     const imageElement = document.createElement('img');
     imageElement.src = image.url.match(/[^<>]+/g).join(',');
     imageElement.alt = image.alt;
     listElement.appendChild(imageElement);
-    ulItem.appendChild(listElement);
+    fragment.appendChild(listElement);
   })
+  ulItem.appendChild(fragment);

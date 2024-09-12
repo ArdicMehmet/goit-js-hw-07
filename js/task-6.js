@@ -14,15 +14,17 @@ function getRandomHexColor() {
 function createBoxes(amount){
     if(amount){
         clearInput();
+        let fragment = document.createDocumentFragment();
         for(let i = 0; i < amount; i++){
             const box = document.createElement('div');
             const size = boxesSize.length >0 ? boxesSize[boxesSize.length -1] + 10 : 30;           
             box.style.width = `${size}px`;
             box.style.height = `${size}px`;
             box.style.backgroundColor=getRandomHexColor();
-            boxesDOM.appendChild(box);
+            fragment.appendChild(box);
             boxesSize.push(size);
         }
+        boxesDOM.appendChild(fragment);
     }
 }
 function destroyBoxes(){
