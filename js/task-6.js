@@ -30,14 +30,20 @@ function createBoxes(amount){
 function destroyBoxes(){
     boxesDOM.innerHTML = '';
     boxesSize.splice(0, boxesSize.length);
-    createBoxes(numberInput.value);
+    clearInput();
 }
 
 function clearInput(){
     numberInput.value='';
 }
 createButton.addEventListener('click', _ => {
-    createBoxes(numberInput.value);
+    if(numberInput.value <100 && numberInput.value > 0){
+        createBoxes(numberInput.value);
+    }
+    else{
+        alert('Please enter a number between 1 and 100');
+    }
+    
 })
 
 destroyButton.addEventListener('click', _ => {
